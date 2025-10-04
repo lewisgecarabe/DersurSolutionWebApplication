@@ -1,0 +1,126 @@
+﻿/* Custom CSS Variables for Dersur Design */
+:root {
+    --primary-dark: #070707;
+    --secondary-dark: #262626;
+    --accent-green: #b2d98b;
+    --accent-teal: #1d655d;
+    --text-white: #ffffff;
+    --text-light: #e6e6e6;
+    --text-muted: #98989a;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: var(--primary-dark);
+    color: var(--text-white);
+    line-height: 1.6;
+}
+
+
+
+/* CTA Section - Bootstrap utilities with custom background */
+.cta-section {
+    background: linear-gradient(rgba(7, 7, 7, 0.85), rgba(7, 7, 7, 0.85)), url("/placeholder.svg?height=400&width=1200");
+    background-size: cover;
+    background-position: center;
+    padding: 120px 0;
+    text-align: center;
+}
+
+    .cta-section h2 {
+        font-size: 2.8rem;
+        font-weight: 600;
+        color: var(--text-white);
+        margin-bottom: 25px;
+        line-height: 1.3;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cta-section p {
+        font-size: 1.2rem;
+        color: var(--text-light);
+        margin-bottom: 40px;
+    }
+
+.schedule-btn {
+    background-color: var(--accent-green) !important;
+    color: var(--primary-dark) !important;
+    font-weight: 600;
+    padding: 18px 35px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+    .schedule-btn:hover {
+        background-color: #9bc77a !important;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(178, 217, 139, 0.3);
+    }
+
+/* Footer - Bootstrap grid with custom styling */
+.footer {
+    background-color: var(--accent-teal);
+    padding: 80px 0 40px;
+}
+
+    .footer h6 {
+        color: var(--text-white);
+        font-weight: 600;
+        margin-bottom: 25px;
+        font-size: 1.1rem;
+    }
+
+    .footer p,
+    .footer a {
+        color: var(--text-light);
+        margin-bottom: 12px;
+        transition: color 0.3s ease;
+        text-decoration: none;
+    }
+
+        .footer a:hover {
+            color: var(--accent-green);
+        }
+
+.footer-bottom {
+    border-top: 1px solid #2a7a70;
+    margin-top: 40px;
+    padding-top: 25px;
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}

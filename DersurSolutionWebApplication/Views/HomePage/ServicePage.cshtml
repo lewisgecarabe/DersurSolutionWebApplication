@@ -1,0 +1,157 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<section class="bg-zinc-950 text-white py-20">
+    <div class="max-w-6xl mx-auto text-center mb-16">
+        <h2 class="text-5xl font-semibold font-['Barlow']">
+            Choose the plan <br /> that will suit you.
+        </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-10 px-6">
+        <!-- Starter Plan -->
+        <div class="bg-stone-700/70 rounded-[32px] p-8 flex flex-col items-center">
+            <h3 class="text-3xl font-bold mb-2">Starter Plan</h3>
+            <p class="text-base text-neutral-300 mb-4">
+                For small businesses and personal projects
+            </p>
+            <p class="text-4xl font-semibold mb-6">₱8,500</p>
+
+            <ul class="space-y-3 text-left w-full">
+                <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-lime-300" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 0 0-1.414 0L9 11.586
+                        6.707 9.293a1 1 0 0 0-1.414 1.414l3 3a1 1
+                        0 0 0 1.414 0l7-7a1 1 0 0 0 0-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Custom responsive design (up to 3 pages)
+                </li>
+                <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-lime-300" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 0 0-1.414 0L9 11.586
+                        6.707 9.293a1 1 0 0 0-1.414 1.414l3 3a1 1
+                        0 0 0 1.414 0l7-7a1 1 0 0 0 0-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Basic SEO setup
+                </li>
+                <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-lime-300" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 0 0-1.414 0L9 11.586
+                        6.707 9.293a1 1 0 0 0-1.414 1.414l3 3a1 1
+                        0 0 0 1.414 0l7-7a1 1 0 0 0 0-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Mobile-friendly layout
+                </li>
+                <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-lime-300" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 0 0-1.414 0L9 11.586
+                        6.707 9.293a1 1 0 0 0-1.414 1.414l3 3a1 1
+                        0 0 0 1.414 0l7-7a1 1 0 0 0 0-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Free consultation
+                </li>
+            </ul>
+
+            <a href="@Url.Action("ContactPage", "HomePage")" button class="mt-6 bg-lime-300 text-black px-6 py-3 rounded-lg font-medium">
+                Subscribe
+            </a>
+        </div>
+
+        <!-- Growth Plan -->
+        <div class="bg-stone-700/70 rounded-[32px] p-8 flex flex-col items-center">
+            <h3 class="text-3xl font-bold mb-2">Growth Plan</h3>
+            <p class="text-base text-neutral-300 mb-4">
+                For growing businesses that need a complete website
+            </p>
+            <p class="text-4xl font-semibold mb-6">₱17,000</p>
+
+            <ul class="space-y-3 text-left w-full">
+                <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-lime-300" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 0 0-1.414 0L9 11.586
+                        6.707 9.293a1 1 0 0 0-1.414 1.414l3 3a1 1
+                        0 0 0 1.414 0l7-7a1 1 0 0 0 0-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Custom responsive design (up to 6 pages)
+                </li>
+                <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-lime-300" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 0 0-1.414 0L9 11.586
+                        6.707 9.293a1 1 0 0 0-1.414 1.414l3 3a1 1
+                        0 0 0 1.414 0l7-7a1 1 0 0 0 0-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Basic SEO & speed optimization
+                </li>
+                <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-lime-300" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 0 0-1.414 0L9 11.586
+                        6.707 9.293a1 1 0 0 0-1.414 1.414l3 3a1 1
+                        0 0 0 1.414 0l7-7a1 1 0 0 0 0-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Contact forms & interactive elements
+                </li>
+                <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-lime-300" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 0 0-1.414 0L9 11.586
+                        6.707 9.293a1 1 0 0 0-1.414 1.414l3 3a1 1
+                        0 0 0 1.414 0l7-7a1 1 0 0 0 0-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    1 month free maintenance
+                </li>
+            </ul>
+
+            <a href="@Url.Action("ContactPage", "HomePage")" button class="mt-6 bg-lime-300 text-black px-6 py-3 rounded-lg font-medium">
+                Subscribe
+            </a>
+        </div>
+
+        <!-- Pro Plan -->
+        <div class="bg-stone-700/70 rounded-[32px] p-8 flex flex-col items-center">
+            <h3 class="text-3xl font-bold mb-2">Pro Plan</h3>
+            <p class="text-base text-neutral-300 mb-4">
+                For established brands & e-commerce
+            </p>
+            <p class="text-4xl font-semibold mb-6">₱28,500+</p>
+
+            <ul class="space-y-3 text-left w-full">
+                <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-lime-300" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 0 0-1.414 0L9 11.586
+                        6.707 9.293a1 1 0 0 0-1.414 1.414l3 3a1 1
+                        0 0 0 1.414 0l7-7a1 1 0 0 0 0-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Custom design (unlimited pages)
+                </li>
+                <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-lime-300" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 0 0-1.414 0L9 11.586
+                        6.707 9.293a1 1 0 0 0-1.414 1.414l3 3a1 1
+                        0 0 0 1.414 0l7-7a1 1 0 0 0 0-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Advanced SEO & analytics integration
+                </li>
+                <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-lime-300" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 0 0-1.414 0L9 11.586
+                        6.707 9.293a1 1 0 0 0-1.414 1.414l3 3a1 1
+                        0 0 0 1.414 0l7-7a1 1 0 0 0 0-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    E-commerce or booking system setup
+                </li>
+                <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-lime-300" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 0 0-1.414 0L9 11.586
+                        6.707 9.293a1 1 0 0 0-1.414 1.414l3 3a1 1
+                        0 0 0 1.414 0l7-7a1 1 0 0 0 0-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    3 months free maintenance & support
+                </li>
+            </ul>
+
+            <a href="@Url.Action("ContactPage", "HomePage")" button class="mt-6 bg-lime-300 text-black px-6 py-3 rounded-lg font-medium">
+                Subscribe
+            </a>
+        </div>
+    </div>
+</section>
