@@ -1,0 +1,220 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="bg-zinc-950 text-white font-['Barlow']">
+
+    <!-- Hero Section -->
+    <section class="relative w-full h-[667px] flex flex-col justify-center items-center text-center px-6">
+        <img class="absolute inset-0 w-full h-full object-cover opacity-30" src="~/Content/image/hero.png" />
+
+        <div class="relative z-10 max-w-4xl space-y-6">
+            <h1 class="text-5xl font-semibold leading-snug">
+                A Digital Product Studio <br /> that will make Website for You
+            </h1>
+
+            <div class="flex flex-wrap justify-center gap-2 bg-neutral-800/20 p-4 rounded-lg outline outline-1 outline-neutral-800 backdrop-blur-md">
+                <span class="text-neutral-400">For</span>
+                <span class="px-3 py-1 bg-neutral-800 rounded-md">Startups</span>
+                <span class="text-neutral-400">,</span>
+                <span class="px-3 py-1 bg-neutral-800 rounded-md">Enterprise leaders</span>
+                <span class="text-neutral-400">,</span>
+                <span class="px-3 py-1 bg-neutral-800 rounded-md">Media & Publishers</span>
+                <span class="text-neutral-400">and</span>
+                <span class="px-3 py-1 bg-neutral-800 rounded-md">Social Good</span>
+            </div>
+
+            <div class="flex justify-center gap-4">
+                <a href="@Url.Action("PortfolioPage", "Main")" class="px-6 py-3 bg-neutral-800/20 rounded-lg outline outline-1 outline-neutral-800 backdrop-blur-md">Our Works</a>
+                <a href="@Url.Action("ContactPage", "Main")" class="px-6 py-3 bg-lime-300 text-neutral-900 rounded-lg font-medium">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="bg-zinc-950 py-24 px-6">
+        <div class="max-w-6xl mx-auto mb-16">
+            <div class="flex flex-col text-left">
+                <h2 class="text-5xl font-semibold font-['Barlow'] mb-4">Our Services</h2>
+                <a href="@Url.Action("ServicePage", "Main")"
+                   class="inline-flex items-center gap-2 text-white text-xl font-normal font-['Barlow'] hover:text-lime-300 transition">
+                    View Services
+                    <i class="fas fa-arrow-right text-lime-300"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
+            <!-- Service 1 -->
+            <div class="flex flex-col justify-between items-start gap-7 p-10 border-t border-neutral-800 bg-zinc-900/20 rounded-xl">
+                <div class="flex flex-col justify-start items-start gap-7">
+                    <div class="p-5 bg-gradient-to-bl from-lime-400/20 to-transparent rounded-lg outline outline-1 outline-zinc-800">
+                        <i class="fas fa-paint-brush text-white text-2xl"></i>
+                    </div>
+                    <div class="flex flex-col gap-3.5">
+                        <h3 class="text-white text-2xl font-semibold font-['Barlow'] leading-9 text-left">
+                            Website Design & Development
+                        </h3>
+                        <p class="text-neutral-200 text-base font-normal font-['Barlow'] leading-relaxed text-left">
+                            We build websites that work for your business. Our team designs and develops custom, responsive websites that look stunning on any device and are optimized for speed, security, and search engines.
+                        </p>
+                    </div>
+                </div>
+                <a href="@Url.Action("ServicePage", "Main")"
+                   class="px-5 py-3.5 bg-lime-300 rounded-md text-black text-sm font-medium font-['Barlow'] hover:bg-lime-400 transition">
+                    Learn More
+                </a>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="flex flex-col justify-between items-start gap-7 p-10 border-t border-neutral-800 bg-zinc-900/20 rounded-xl">
+                <div class="flex flex-col justify-start items-start gap-7">
+                    <div class="p-5 bg-gradient-to-bl from-lime-400/20 to-transparent rounded-lg outline outline-1 outline-zinc-800">
+                        <i class="fas fa-puzzle-piece text-white text-2xl"></i>
+                    </div>
+                    <div class="flex flex-col gap-3.5">
+                        <h3 class="text-white text-2xl font-semibold font-['Barlow'] leading-9 text-left">
+                            Website Maintenance
+                        </h3>
+                        <p class="text-neutral-200 text-base font-normal font-['Barlow'] leading-relaxed text-left">
+                            Keep your website secure, updated, and performing at its best. We provide ongoing maintenance so you can focus on your business while we handle the technical side. From software updates to security checks and content changes, we make sure your website stays in top shape.
+                        </p>
+                    </div>
+                </div>
+                <a href="@Url.Action("ServicePage", "Main")"
+                   class="px-5 py-3.5 bg-lime-300 rounded-md text-black text-sm font-medium font-['Barlow'] hover:bg-lime-400 transition">
+                    Learn More
+                </a>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="flex flex-col justify-between items-start gap-7 p-10 border-t border-neutral-800 bg-zinc-900/20 rounded-xl">
+                <div class="flex flex-col justify-start items-start gap-7">
+                    <div class="p-5 bg-gradient-to-bl from-lime-400/20 to-transparent rounded-lg outline outline-1 outline-zinc-800">
+                        <i class="fas fa-battery-full text-white text-2xl"></i>
+                    </div>
+                    <div class="flex flex-col gap-3.5">
+                        <h3 class="text-white text-2xl font-semibold font-['Barlow'] leading-9 text-left">
+                            Speed & Security Optimization
+                        </h3>
+                        <p class="text-neutral-200 text-base font-normal font-['Barlow'] leading-relaxed text-left">
+                            Everything you need to get your website online — hassle-free. We help you choose and set up the right hosting plan and domain name for your business.
+                        </p>
+                    </div>
+                </div>
+                <a href="@Url.Action("ServicePage", "Main")"
+                   class="px-5 py-3.5 bg-lime-300 rounded-md text-black text-sm font-medium font-['Barlow'] hover:bg-lime-400 transition">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Why Choose Us -->
+    <section class="relative bg-teal-800 py-20 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+            <!-- Left: Image -->
+            <div class="flex justify-center">
+                <img class="w-[475px] h-80 object-cover rounded-lg"
+                     src="~/Content/image/choose.png" alt="Why Choose Us Image" />
+            </div>
+
+            <!-- Right: Text Content -->
+            <div class="space-y-6">
+                <h2 class="text-3xl md:text-4xl font-bold font-['Barlow'] text-black">
+                    Why choose us?
+                </h2>
+                <div class="w-16 h-1 bg-white rounded-xl"></div>
+
+                <h3 class="text-2xl font-semibold font-['Barlow'] text-black tracking-wide">
+                    Building digital experiences that inspire, connect, and elevate your brand.
+                </h3>
+
+                <p class="text-lg font-normal font-['Barlow'] text-white leading-relaxed text-justify">
+                    We are a digital agency dedicated to crafting high-performing websites and innovative solutions for businesses that want to stand out online.
+                    Our team combines design, strategy, and technology to create seamless digital experiences — from sleek, responsive web designs to powerful
+                    back-end systems. Whether you’re launching your brand, growing your reach, or redefining your online presence, we’re here to turn your vision
+                    into a meaningful digital reality.
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="max-w-6xl mx-auto px-6 py-20 space-y-12">
+        <!-- Title + Link -->
+        <div class="flex flex-col text-left mb-8">
+            <h2 class="text-5xl font-semibold font-['Barlow']">Featured Projects</h2>
+            <a href="@Url.Action("PortfolioPage", "Main")"
+               class="inline-flex items-center gap-2 text-white text-xl font-normal font-['Barlow'] hover:text-lime-300 transition mt-4">
+                View Projects
+                <i class="fas fa-arrow-right text-lime-300"></i>
+            </a>
+        </div>
+
+        <!-- Project Grid -->
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- Project Card 1 -->
+            <div class="flex flex-col justify-start items-start gap-6">
+                <img class="w-full h-80 object-cover rounded-[10px]" src="~/Content/image/triv.png" />
+
+                <div class="w-full flex justify-between items-center">
+                    <div class="flex flex-col">
+                        <div class="text-neutral-200 text-lg font-medium font-['Barlow'] leading-relaxed">
+                            Triv Design and Construction
+                        </div>
+                    </div>
+
+
+                    <a href="#" class="p-2.5 bg-neutral-800 rounded-md flex justify-center items-center hover:bg-neutral-700 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                             class="w-6 h-6 text-white">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M7 17L17 7M7 7h10v10" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="text-neutral-400 text-base font-normal font-['Inter'] leading-normal">
+                    We designed and developed a visually striking and intuitive online platform for Triv Design and Construction,
+                    a leader in premium building and renovation services...
+                </div>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="flex flex-col justify-start items-start gap-6">
+                <img class="w-full h-80 object-cover rounded-[10px]" src="~/Content/image/madebyjanaiza.png" />
+
+                <div class="w-full flex justify-between items-center">
+                    <div class="flex flex-col">
+                        <div class="text-neutral-200 text-lg font-medium font-['Barlow'] leading-relaxed">
+                            Made by Janaiza
+                        </div>
+                    </div>
+
+
+                    <a href="#" class="p-2.5 bg-neutral-800 rounded-md flex justify-center items-center hover:bg-neutral-700 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                             class="w-6 h-6 text-white">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M7 17L17 7M7 7h10v10" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="text-neutral-400 text-base font-normal font-['Inter'] leading-normal">
+                    Made by Janaiza partnered with us to create a handcrafted e-commerce platform...
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+

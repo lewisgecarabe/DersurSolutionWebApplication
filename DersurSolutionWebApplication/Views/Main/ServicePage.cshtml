@@ -1,0 +1,196 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!-- PRICING PLANS  -->
+<section class="bg-zinc-950 text-white py-20 px-6">
+    <div class="max-w-6xl mx-auto text-center mb-20">
+        <h2 class="text-5xl font-semibold font-['Barlow'] mb-4">
+            Choose the plan that will suit you.
+        </h2>
+        <p class="text-neutral-400 text-lg font-light max-w-2xl mx-auto">
+            Flexible pricing options for every business size — from personal portfolios to full-scale enterprises.
+        </p>
+    </div>
+
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
+        <!-- Starter Plan -->
+        <div class="bg-stone-800/70 rounded-3xl p-10 flex flex-col items-center text-center border border-stone-700 hover:scale-105 transition-transform duration-300">
+            <h3 class="text-3xl font-bold mb-2">Starter Plan</h3>
+            <p class="text-base text-neutral-300 mb-4">For small businesses and personal projects</p>
+            <p class="text-4xl font-semibold mb-8 text-lime-300">₱8,500</p>
+
+            <ul class="space-y-3 text-left w-full text-neutral-200 mb-10">
+                <li>✔ Custom responsive design (up to 3 pages)</li>
+                <li>✔ Basic SEO setup</li>
+                <li>✔ Mobile-friendly layout</li>
+                <li>✔ Free consultation</li>
+            </ul>
+
+            <a href="@Url.Action("ContactPage", "Main")"
+               class="mt-auto bg-lime-300 text-black px-6 py-3 rounded-lg font-medium hover:bg-lime-400 transition">
+                Subscribe
+            </a>
+        </div>
+
+        <!-- Growth Plan -->
+        <div class="bg-stone-800/70 rounded-3xl p-10 flex flex-col items-center text-center border border-stone-700 hover:scale-105 transition-transform duration-300">
+            <h3 class="text-3xl font-bold mb-2">Growth Plan</h3>
+            <p class="text-base text-neutral-300 mb-4">For growing businesses that need a complete website</p>
+            <p class="text-4xl font-semibold mb-8 text-lime-300">₱17,000</p>
+
+            <ul class="space-y-3 text-left w-full text-neutral-200 mb-10">
+                <li>✔ Custom responsive design (up to 6 pages)</li>
+                <li>✔ Basic SEO & speed optimization</li>
+                <li>✔ Contact forms & interactive elements</li>
+                <li>✔ 1 month free maintenance</li>
+            </ul>
+
+            <a href="@Url.Action("ContactPage", "Main")"
+               class="mt-auto bg-lime-300 text-black px-6 py-3 rounded-lg font-medium hover:bg-lime-400 transition">
+                Subscribe
+            </a>
+        </div>
+
+        <!-- Pro Plan -->
+        <div class="bg-stone-800/70 rounded-3xl p-10 flex flex-col items-center text-center border border-stone-700 hover:scale-105 transition-transform duration-300">
+            <h3 class="text-3xl font-bold mb-2">Pro Plan</h3>
+            <p class="text-base text-neutral-300 mb-4">For established brands & e-commerce solutions</p>
+            <p class="text-4xl font-semibold mb-8 text-lime-300">₱28,500+</p>
+
+            <ul class="space-y-3 text-left w-full text-neutral-200 mb-10">
+                <li>✔ Custom design (unlimited pages)</li>
+                <li>✔ Advanced SEO & analytics integration</li>
+                <li>✔ E-commerce or booking system setup</li>
+                <li>✔ 3 months free maintenance & support</li>
+            </ul>
+
+            <a href="@Url.Action("ContactPage", "Main")"
+               class="mt-auto bg-lime-300 text-black px-6 py-3 rounded-lg font-medium hover:bg-lime-400 transition">
+                Subscribe
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!--  PLAN COMPARISON TABLE  -->
+<section class="bg-zinc-900 text-white py-20 px-6">
+    <div class="max-w-6xl mx-auto text-center mb-16">
+        <h2 class="text-5xl font-semibold font-['Barlow'] mb-4">Compare Our Plans</h2>
+        <p class="text-neutral-400 text-lg font-light">See what’s included in each plan and find your perfect match.</p>
+    </div>
+
+    <div class="overflow-x-auto max-w-6xl mx-auto rounded-2xl border border-stone-800">
+        <table class="w-full border-collapse text-left min-w-[800px] text-neutral-300">
+            <thead>
+                <tr class="bg-stone-800/70 text-white text-base">
+                    <th class="p-5 font-semibold text-left">Features</th>
+                    <th class="p-5 font-semibold text-center">Starter</th>
+                    <th class="p-5 font-semibold text-center">Growth</th>
+                    <th class="p-5 font-semibold text-center">Pro</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-800">
+                <tr>
+                    <td class="p-4">Custom Pages</td>
+                    <td class="p-4 text-center">Up to 3</td>
+                    <td class="p-4 text-center">Up to 6</td>
+                    <td class="p-4 text-center">Unlimited</td>
+                </tr>
+                <tr>
+                    <td class="p-4">Responsive Design</td>
+                    <td class="p-4 text-center">✔</td>
+                    <td class="p-4 text-center">✔</td>
+                    <td class="p-4 text-center">✔</td>
+                </tr>
+                <tr>
+                    <td class="p-4">SEO Optimization</td>
+                    <td class="p-4 text-center">Basic</td>
+                    <td class="p-4 text-center">Basic + Speed</td>
+                    <td class="p-4 text-center">Advanced + Analytics</td>
+                </tr>
+                <tr>
+                    <td class="p-4">Contact Forms</td>
+                    <td class="p-4 text-center">✖</td>
+                    <td class="p-4 text-center">✔</td>
+                    <td class="p-4 text-center">✔</td>
+                </tr>
+                <tr>
+                    <td class="p-4">Maintenance</td>
+                    <td class="p-4 text-center">None</td>
+                    <td class="p-4 text-center">1 Month</td>
+                    <td class="p-4 text-center">3 Months</td>
+                </tr>
+                <tr>
+                    <td class="p-4">E-commerce Features</td>
+                    <td class="p-4 text-center">✖</td>
+                    <td class="p-4 text-center">Optional Add-on</td>
+                    <td class="p-4 text-center">✔ Included</td>
+                </tr>
+                <tr class="bg-stone-800/50">
+                    <td class="p-4 font-semibold">Price</td>
+                    <td class="p-4 text-center font-semibold text-lime-300">₱8,500</td>
+                    <td class="p-4 text-center font-semibold text-lime-300">₱17,000</td>
+                    <td class="p-4 text-center font-semibold text-lime-300">₱28,500+</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+<!--  FAQ SECTION (Collapsible)  -->
+<section class="bg-zinc-950 text-white py-28 px-6">
+    <div class="max-w-5xl mx-auto text-center mb-14">
+        <h2 class="text-5xl font-semibold font-['Barlow'] mb-4">Frequently Asked Questions</h2>
+        <p class="text-neutral-400 text-lg font-light">
+            Everything you need to know before getting started with your project.
+        </p>
+    </div>
+
+    <div class="max-w-3xl mx-auto space-y-5">
+        <!-- FAQ Item -->
+        <div class="bg-stone-800/70 rounded-2xl overflow-hidden transition-all">
+            <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-stone-700/60 transition">
+                <h3 class="text-lg font-semibold">How long does it take to build my website?</h3>
+                <span class="text-lime-300 text-2xl font-bold leading-none">+</span>
+            </button>
+            <div class="faq-content px-6 pb-4 hidden text-neutral-300 text-base leading-relaxed">
+                The Starter Plan usually takes 1–2 weeks, while the Growth and Pro Plans can take 3–5 weeks depending on content and revisions.
+            </div>
+        </div>
+
+        <div class="bg-stone-800/70 rounded-2xl overflow-hidden transition-all">
+            <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-stone-700/60 transition">
+                <h3 class="text-lg font-semibold">Do you provide hosting or domain registration?</h3>
+                <span class="text-lime-300 text-2xl font-bold leading-none">+</span>
+            </button>
+            <div class="faq-content px-6 pb-4 hidden text-neutral-300 text-base leading-relaxed">
+                We can assist you in setting up hosting and domain providers, but costs are billed separately from the plan.
+            </div>
+        </div>
+
+        <div class="bg-stone-800/70 rounded-2xl overflow-hidden transition-all">
+            <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-stone-700/60 transition">
+                <h3 class="text-lg font-semibold">Can I request updates after the project is done?</h3>
+                <span class="text-lime-300 text-2xl font-bold leading-none">+</span>
+            </button>
+            <div class="faq-content px-6 pb-4 hidden text-neutral-300 text-base leading-relaxed">
+                Yes! We offer ongoing maintenance and update packages even after your free maintenance period ends.
+            </div>
+        </div>
+
+        <div class="bg-stone-800/70 rounded-2xl overflow-hidden transition-all">
+            <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-stone-700/60 transition">
+                <h3 class="text-lg font-semibold">What if I’m not satisfied with the design?</h3>
+                <span class="text-lime-300 text-2xl font-bold leading-none">+</span>
+            </button>
+            <div class="faq-content px-6 pb-4 hidden text-neutral-300 text-base leading-relaxed">
+                Every plan includes revision rounds to ensure your satisfaction before launch.
+            </div>
+        </div>
+    </div>
+</section>
+
+

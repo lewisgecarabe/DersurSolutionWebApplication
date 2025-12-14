@@ -1,0 +1,105 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<section class="bg-zinc-950 min-h-screen px-6 py-16 text-white">
+
+    <!-- Header -->
+    <div class="max-w-7xl mx-auto mb-12">
+        <h1 class="text-5xl font-semibold font-barlow mb-2">Admin Dashboard</h1>
+        <p class="text-neutral-400">Manage your website content and messages</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+
+        <div class="bg-stone-800/70 rounded-2xl p-6">
+            <h3 class="text-sm text-neutral-400">Contact Messages</h3>
+            <p class="text-4xl font-bold text-lime-300 mt-2">12</p>
+        </div>
+
+        <div class="bg-stone-800/70 rounded-2xl p-6">
+            <h3 class="text-sm text-neutral-400">Projects</h3>
+            <p class="text-4xl font-bold text-lime-300 mt-2">4</p>
+        </div>
+
+        <div class="bg-stone-800/70 rounded-2xl p-6">
+            <h3 class="text-sm text-neutral-400">Services</h3>
+            <p class="text-4xl font-bold text-lime-300 mt-2">3</p>
+        </div>
+
+    </div>
+
+    <!-- Management Sections -->
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
+
+        <!-- Contact Messages -->
+        <div class="bg-stone-800/70 rounded-2xl p-6">
+            <h2 class="text-2xl font-semibold mb-4">Contact Messages</h2>
+
+            <table class="w-full text-sm text-left text-neutral-300">
+                <thead class="border-b border-stone-700">
+                    <tr>
+                        <th class="py-2">Name</th>
+                        <th class="py-2">Email</th>
+                        <th class="py-2">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-stone-700">
+                        <td class="py-2">John Doe</td>
+                        <td class="py-2">john@email.com</td>
+                        <td class="py-2">
+                            <button class="text-lime-300 hover:underline">View</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Projects -->
+        <div class="bg-stone-800/70 rounded-2xl p-6">
+            <h2 class="text-2xl font-semibold mb-4">Projects</h2>
+
+            <ul class="space-y-3 text-neutral-300">
+                <li class="flex justify-between">
+                    <span>Triv Design</span>
+                    <button class="text-lime-300 hover:underline">Edit</button>
+                </li>
+                <li class="flex justify-between">
+                    <span>Made by Janaiza</span>
+                    <button class="text-lime-300 hover:underline">Edit</button>
+                </li>
+            </ul>
+
+            <button class="mt-6 bg-lime-300 text-black px-4 py-2 rounded-md font-medium hover:bg-lime-400">
+                Add Project
+            </button>
+        </div>
+
+        <!-- Services -->
+        <div class="bg-stone-800/70 rounded-2xl p-6">
+            <h2 class="text-2xl font-semibold mb-4">Services</h2>
+
+            <ul class="space-y-3 text-neutral-300">
+                <li class="flex justify-between">
+                    <span>Starter Plan</span>
+                    <button class="text-lime-300 hover:underline">Edit</button>
+                </li>
+                <li class="flex justify-between">
+                    <span>Growth Plan</span>
+                    <button class="text-lime-300 hover:underline">Edit</button>
+                </li>
+            </ul>
+
+            <button class="mt-6 bg-lime-300 text-black px-4 py-2 rounded-md font-medium hover:bg-lime-400">
+                Add Service
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+

@@ -1,0 +1,49 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="min-h-screen bg-zinc-950 flex items-center justify-center px-6 py-20">
+
+    <div class="bg-neutral-900 border border-neutral-800 rounded-2xl p-10 w-full max-w-md shadow-xl">
+
+        <h2 class="text-3xl font-semibold text-white text-center mb-6 font-barlow">
+            Welcome Back
+        </h2>
+        <p class="text-neutral-400 text-center mb-8">
+            Login to your account to continue.
+        </p>
+
+        <!-- LOGIN FORM -->
+        <form class="space-y-6">
+
+            <!-- Email -->
+            <div>
+                <label class="text-sm text-white font-medium block mb-2">Email</label>
+                <input type="email"
+                       ng-model="login.email"
+                       class="w-full bg-transparent border-b border-white/30 p-2 text-white focus:outline-none focus:border-lime-300"
+                       placeholder="example@email.com">
+                <p ng-show="loginSubmitted && !login.email"
+                   class="text-red-400 text-xs mt-1">Email is required.</p>
+            </div>
+
+            <!-- Password -->
+            <div>
+                <label class="text-sm text-white font-medium block mb-2">Password</label>
+                <input type="password"
+                       ng-model="login.password"
+                       class="w-full bg-transparent border-b border-white/30 p-2 text-white focus:outline-none focus:border-lime-300"
+                       placeholder="Enter your password">
+                <p ng-show="loginSubmitted && !login.password"
+                   class="text-red-400 text-xs mt-1">Password is required.</p>
+            </div>
+
+            <!-- Login Button -->
+            <button type="button"
+                    ng-click="processLogin()"
+                    class="w-full bg-lime-300 text-black font-semibold py-3 rounded-lg shadow hover:bg-lime-400 transition">
+                Login
+            </button>
+        </form>
+    </div>
+</div>

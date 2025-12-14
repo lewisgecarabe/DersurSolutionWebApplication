@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
 
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>  
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -35,49 +37,59 @@
 
             <!-- Logo -->
             <div class="flex-shrink-0">
-                <img class="h-12 md:h-14 w-auto" src="~/Content/image/logo.png" alt="Logo" />
+                <a href="@Url.Action("HomePage", "Main")">
+                    <img class="h-12 md:h-14 w-auto" src="~/Content/image/logo.png" alt="Logo" />
+                </a>
             </div>
 
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex items-center gap-6">
-                <a href="@Url.Action("HomePage", "HomePage")"
+                <a href="@Url.Action("HomePage", "Main")"
                    class="px-4 py-2 rounded-md text-sm font-semibold font-['Barlow']
-       @(ViewContext.RouteData.Values["action"]?.ToString() == "HomePage" ? "bg-neutral-800 text-white" : "text-neutral-200 hover:text-white")">
+               @(ViewContext.RouteData.Values["action"]?.ToString() == "HomePage" ? "bg-neutral-800 text-white" : "text-neutral-200 hover:text-white")">
                     Home
                 </a>
 
-                <a href="@Url.Action("ServicePage", "HomePage")"
+                <a href="@Url.Action("ServicePage", "Main")"
                    class="px-4 py-2 rounded-md text-sm font-semibold font-['Barlow']
-       @(ViewContext.RouteData.Values["action"]?.ToString() == "ServicePage" ? "bg-neutral-800 text-white" : "text-neutral-200 hover:text-white")">
+               @(ViewContext.RouteData.Values["action"]?.ToString() == "ServicePage" ? "bg-neutral-800 text-white" : "text-neutral-200 hover:text-white")">
                     Services
                 </a>
 
-                <a href="@Url.Action("PortfolioPage", "HomePage")"
+                <a href="@Url.Action("PortfolioPage", "Main")"
                    class="px-4 py-2 rounded-md text-sm font-medium font-['Barlow']
-       @(ViewContext.RouteData.Values["action"]?.ToString() == "PortfolioPage" ? "bg-neutral-800 text-white" : "text-neutral-200 hover:text-white")">
+               @(ViewContext.RouteData.Values["action"]?.ToString() == "PortfolioPage" ? "bg-neutral-800 text-white" : "text-neutral-200 hover:text-white")">
                     Projects
                 </a>
 
-                <a href="@Url.Action("AboutPage", "HomePage")"
+                <a href="@Url.Action("AboutPage", "Main")"
                    class="px-4 py-2 rounded-md text-sm font-medium font-['Barlow']
-       @(ViewContext.RouteData.Values["action"]?.ToString() == "AboutPage" ? "bg-neutral-800 text-white" : "text-neutral-200 hover:text-white")">
+               @(ViewContext.RouteData.Values["action"]?.ToString() == "AboutPage" ? "bg-neutral-800 text-white" : "text-neutral-200 hover:text-white")">
                     About
                 </a>
             </nav>
 
+            <!-- Desktop Buttons: Contact + Login -->
+            <div class="hidden md:flex items-center gap-4">
 
-            <!-- Contact Button -->
-            <div class="hidden md:block">
-                <a href="@Url.Action("ContactPage", "HomePage")"
-                   class="px-4 py-2 bg-lime-300 rounded-md text-zinc-950 text-sm font-medium font-['Barlow'] shadow-md hover:bg-lime-400">
+                <!-- Contact Button -->
+                <a href="@Url.Action("ContactPage", "Main")"
+                   class="px-4 py-2 bg-lime-300 rounded-md text-zinc-950 text-sm font-medium font-['Barlow'] shadow-md hover:bg-lime-400 transition">
                     Contact Us
+                </a>
+
+                <!-- Login Button -->
+                <a href="@Url.Action("LoginPage", "Main")"
+                   class="flex items-center gap-1 px-4 py-2 rounded-md text-sm font-medium font-['Barlow']
+       bg-neutral-800 text-white hover:bg-neutral-700 transition">
+                    <i class="fa-solid fa-user text-lime-300"></i>
+                    Login
                 </a>
             </div>
 
             <!-- Mobile Menu Button -->
             <div class="md:hidden">
                 <button id="menu-btn" class="focus:outline-none">
-                    <!-- Hamburger Icon -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
                          viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -88,14 +100,28 @@
         </div>
 
         <!-- Mobile Dropdown Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="#" class="block px-4 py-2 rounded-md bg-neutral-800 text-sm font-semibold font-['Barlow']">Home</a>
-            <a href="#" class="block px-4 py-2 text-neutral-200 hover:bg-neutral-700 rounded-md text-sm font-medium font-['Barlow']">Services</a>
-            <a href="#" class="block px-4 py-2 text-neutral-200 hover:bg-neutral-700 rounded-md text-sm font-medium font-['Barlow']">Projects</a>
-            <a href="#" class="block px-4 py-2 text-neutral-200 hover:bg-neutral-700 rounded-md text-sm font-medium font-['Barlow']">About</a>
-            <a href="#" class="block mt-2 px-4 py-2 bg-lime-300 rounded-md text-zinc-950 text-sm font-medium font-['Barlow'] shadow-md hover:bg-lime-400">Contact Us</a>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-1">
+
+            <a href="@Url.Action("HomePage", "Main")" class="block px-4 py-2 text-neutral-200 hover:bg-neutral-700 rounded-md text-sm font-medium font-['Barlow']">Home</a>
+            <a href="@Url.Action("ServicePage", "Main")" class="block px-4 py-2 text-neutral-200 hover:bg-neutral-700 rounded-md text-sm font-medium font-['Barlow']">Services</a>
+            <a href="@Url.Action("PortfolioPage", "Main")" class="block px-4 py-2 text-neutral-200 hover:bg-neutral-700 rounded-md text-sm font-medium font-['Barlow']">Projects</a>
+            <a href="@Url.Action("AboutPage", "Main")" class="block px-4 py-2 text-neutral-200 hover:bg-neutral-700 rounded-md text-sm font-medium font-['Barlow']">About</a>
+
+            <!-- Mobile Login -->
+            <a href="@Url.Action("Login", "Main")"
+               class="block px-4 py-2 text-neutral-200 hover:bg-neutral-700 rounded-md text-sm font-medium font-['Barlow']">
+                <i class="fa-solid fa-user mr-1 text-lime-300"></i>
+                Login
+            </a>
+
+            <!-- Mobile Contact -->
+            <a href="@Url.Action("ContactPage", "Main")"
+               class="block mt-2 px-4 py-2 bg-lime-300 rounded-md text-zinc-950 text-sm font-medium font-['Barlow'] shadow-md hover:bg-lime-400">
+                Contact Us
+            </a>
         </div>
     </header>
+
 
 
 
@@ -122,7 +148,7 @@
                 <p class="text-lg md:text-2xl mb-6">
                     Ready to build your project? Let’s talk about your plans.
                 </p>
-                <a href="@Url.Action("ContactPage", "HomePage")"
+                <a href="@Url.Action("ContactPage", "Main")"
                    class="bg-lime-300 text-black font-semibold px-6 py-3 rounded-md shadow hover:bg-lime-400 transition">
                     REQUEST A SCHEDULE CALL
                 </a>
@@ -151,11 +177,12 @@
             <div>
                 <h3 class="font-bold mb-3">Links</h3>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="@Url.Action("HomePage", "HomePage")" class="hover:underline">Home</a></li>
-                    <li><a href="@Url.Action("ServicePage", "HomePage")" class="hover:underline">Services</a></li>
-                    <li><a href="@Url.Action("PortfolioPage", "HomePage")" class="hover:underline">Projects</a></li>
-                    <li><a href="@Url.Action("ContactPage", "HomePage")" class="hover:underline">Contact us</a></li>
-                    <li><a href="@Url.Action("AboutPage", "HomePage")" class="hover:underline">About</a></li>
+                    <li><a href="@Url.Action("HomePage", "Main")" class="hover:underline">Home</a></li>
+                    <li><a href="@Url.Action("ServicePage", "Main")" class="hover:underline">Services</a></li>
+                    <li><a href="@Url.Action("PortfolioPage", "Main")" class="hover:underline">Projects</a></li>
+                    <li><a href="@Url.Action("ContactPage", "Main")" class="hover:underline">Contact us</a></li>
+                    <li><a href="@Url.Action("AboutPage", "Main")" class="hover:underline">About</a></li>
+                    <li><a href="@Url.Action("Dashboard", "Main")" class="hover:underline">About</a></li>
                 </ul>
             </div>
 
@@ -176,14 +203,5 @@
     </footer>
 
 
-    <script>t
-        // Mobile menu toggle
-        const menuBtn = document.getElementById("menu-btn");
-        const mobileMenu = document.getElementById("mobile-menu");
-
-        menuBtn.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
-        });
-    </script>
 </body>
 </html>
