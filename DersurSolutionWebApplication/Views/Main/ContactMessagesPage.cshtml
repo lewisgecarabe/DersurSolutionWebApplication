@@ -1,0 +1,100 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!-- ===================== -->
+<!-- CONTACT CMS -->
+<!-- ===================== -->
+<link rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+
+<section class="bg-zinc-950 min-h-screen px-6 py-16 text-white"
+         ng-controller="DersurSolutionWebApplicationController"
+         ng-init="loadContacts(); loadArchivedContacts(); loadProjects(); loadServices();"
+         ng-cloak>
+
+    <div class="max-w-7xl mx-auto mb-24 bg-stone-800/70 rounded-3xl p-8 shadow-lg">
+
+        <!-- TITLE -->
+        <div class="mb-10">
+            <h2 class="text-3xl font-semibold mb-2">Contact Messages</h2>
+            <p class="text-neutral-400 text-sm">
+                View and manage inquiries sent through the website
+            </p>
+        </div>
+
+        <!-- ACTIVE CONTACTS -->
+        <div class="mb-20">
+            <h3 class="text-xl font-semibold mb-4">Active Messages</h3>
+
+            <div class="overflow-x-auto rounded-xl border border-zinc-700">
+                <table id="contactTable" class="display w-full text-sm">
+                    <thead class="bg-zinc-900 text-neutral-300">
+                        <tr>
+                            <th class="p-4">Name</th>
+                            <th class="p-4">Email</th>
+                            <th class="p-4">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="c in contactData">
+                            <td class="p-4">
+                                {{ c.FirstName }} {{ c.LastName }}
+                            </td>
+                            <td class="p-4">
+                                {{ c.Email }}
+                            </td>
+                            <td class="p-4 space-x-3">
+                                <button class="text-lime-300 hover:underline"
+                                        ng-click="viewContact(c)">
+                                    View
+                                </button>
+                                <button class="text-red-400 hover:underline"
+                                        ng-click="archiveContact(c.ContactID)">
+                                    Archive
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ARCHIVED CONTACTS -->
+        <div>
+            <h3 class="text-xl font-semibold mb-4 text-red-400">
+                Archived Messages
+            </h3>
+
+            <div class="overflow-x-auto rounded-xl border border-zinc-700">
+                <table class="w-full text-sm text-neutral-300">
+                    <thead class="bg-zinc-900">
+                        <tr>
+                            <th class="p-4">Name</th>
+                            <th class="p-4">Email</th>
+                            <th class="p-4">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="a in archivedContactData"
+                            class="opacity-80">
+                            <td class="p-4">
+                                {{ a.FirstName }} {{ a.LastName }}
+                            </td>
+                            <td class="p-4">
+                                {{ a.Email }}
+                            </td>
+                            <td class="p-4">
+                                <button class="text-lime-300 hover:underline"
+                                        ng-click="unarchiveContact(a.ContactID)">
+                                    Unarchive
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</section>

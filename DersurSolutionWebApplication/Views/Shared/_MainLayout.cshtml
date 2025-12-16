@@ -6,7 +6,7 @@
     <title>@ViewBag.Title</title>
 
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>  
+    <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -17,13 +17,27 @@
 
     <!-- AngularJS Library -->
     <script src="~/Scripts/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
     <script src="~/Scripts/angular.min.js"></script>
+    <!-- Chart.js v2 (COMPATIBLE) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+
+
+    <!-- Angular Chart -->
+    <script src="https://cdn.jsdelivr.net/npm/angular-chart.js@1.1.1/dist/angular-chart.min.js"></script>
+
     <script src="~/Scripts/HolderScripts/Module.js"></script>
     <script src="~/Scripts/HolderScripts/Controller.js"></script>
     <script src="~/Scripts/HolderScripts/Service.js"></script>
 
     <!-- Font Awesome CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+
 
 </head>
 <body ng-app="DersurSolutionWebApplication" ng-controller="DersurSolutionWebApplicationController"
@@ -35,94 +49,141 @@
     <header class="w-full bg-neutral-900 text-white border-b border-neutral-800">
         <div class="max-w-7xl mx-auto px-6 md:px-20 py-4 flex justify-between items-center">
 
-            <!-- Logo -->
-            <div class="flex-shrink-0">
-                <a href="@Url.Action("HomePage", "Main")">
-                    <img class="h-12 md:h-14 w-auto" src="~/Content/image/logo.png" alt="Logo" />
-                </a>
-            </div>
+            <!-- LOGO -->
+            <a href="@Url.Action("HomePage", "Main")">
+                <img class="h-12 md:h-14 w-auto" src="~/Content/image/logo.png" alt="Logo" />
+            </a>
 
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center gap-6">
-                <a href="@Url.Action("HomePage", "Main")"
-                   class="px-4 py-2 rounded-md text-sm font-semibold font-['Barlow']
-               @(ViewContext.RouteData.Values["action"]?.ToString() == "HomePage" ? "bg-neutral-800 text-white" : "text-neutral-200 hover:text-white")">
-                    Home
-                </a>
+            <!-- DESKTOP NAV -->
+            <nav class="hidden md:flex items-center gap-6 text-sm font-semibold font-['Barlow']">
 
-                <a href="@Url.Action("ServicePage", "Main")"
-                   class="px-4 py-2 rounded-md text-sm font-semibold font-['Barlow']
-               @(ViewContext.RouteData.Values["action"]?.ToString() == "ServicePage" ? "bg-neutral-800 text-white" : "text-neutral-200 hover:text-white")">
-                    Services
-                </a>
+                @if (Session["AdminID"] != null)
+                {
+                    <!-- ADMIN NAV -->
+                    <a href="@Url.Action("Dashboard", "Main")"
+                       class="px-4 py-2 rounded-md @(ViewContext.RouteData.Values["action"]?.ToString() == "Dashboard" ? "bg-neutral-800" : "hover:text-white")">
+                        Dashboard
+                    </a>
 
-                <a href="@Url.Action("PortfolioPage", "Main")"
-                   class="px-4 py-2 rounded-md text-sm font-medium font-['Barlow']
-               @(ViewContext.RouteData.Values["action"]?.ToString() == "PortfolioPage" ? "bg-neutral-800 text-white" : "text-neutral-200 hover:text-white")">
-                    Projects
-                </a>
+                    <a href="@Url.Action("ContactMessagesPage", "Main")"
+                       class="px-4 py-2 hover:text-white">
+                        Contact Messages
+                    </a>
 
-                <a href="@Url.Action("AboutPage", "Main")"
-                   class="px-4 py-2 rounded-md text-sm font-medium font-['Barlow']
-               @(ViewContext.RouteData.Values["action"]?.ToString() == "AboutPage" ? "bg-neutral-800 text-white" : "text-neutral-200 hover:text-white")">
-                    About
-                </a>
+                    <a href="@Url.Action("ProjectManagement", "Main")"
+                       class="px-4 py-2 hover:text-white">
+                        Project Management
+                    </a>
+
+                    <a href="@Url.Action("ServiceManagment", "Main")"
+                       class="px-4 py-2 hover:text-white">
+                        Services Mangement
+                    </a>
+
+                  
+                }
+                else
+                {
+                    <!-- PUBLIC NAV -->
+                    <a href="@Url.Action("HomePage", "Main")"
+                       class="px-4 py-2 @(ViewContext.RouteData.Values["action"]?.ToString() == "HomePage" ? "bg-neutral-800" : "hover:text-white")">
+                        Home
+                    </a>
+
+                    <a href="@Url.Action("ServicePage", "Main")"
+                       class="px-4 py-2 @(ViewContext.RouteData.Values["action"]?.ToString() == "ServicePage" ? "bg-neutral-800" : "hover:text-white")">
+                        Services
+                    </a>
+
+                    <a href="@Url.Action("PortfolioPage", "Main")"
+                       class="px-4 py-2 @(ViewContext.RouteData.Values["action"]?.ToString() == "PortfolioPage" ? "bg-neutral-800" : "hover:text-white")">
+                        Projects
+                    </a>
+
+                    <a href="@Url.Action("AboutPage", "Main")"
+                       class="px-4 py-2 @(ViewContext.RouteData.Values["action"]?.ToString() == "AboutPage" ? "bg-neutral-800" : "hover:text-white")">
+                        About
+                    </a>
+                }
+
             </nav>
 
-            <!-- Desktop Buttons: Contact + Login -->
+            <!-- RIGHT BUTTONS -->
             <div class="hidden md:flex items-center gap-4">
 
-                <!-- Contact Button -->
-                <a href="@Url.Action("ContactPage", "Main")"
-                   class="px-4 py-2 bg-lime-300 rounded-md text-zinc-950 text-sm font-medium font-['Barlow'] shadow-md hover:bg-lime-400 transition">
-                    Contact Us
-                </a>
+                @if (Session["AdminID"] != null)
+                {
+                    <a href="@Url.Action("Logout", "Main")"
+                       class="px-4 py-2 rounded-md bg-red-500 hover:bg-red-600 text-sm font-medium">
+                        Logout
+                    </a>
+                }
+                else
+                {
+                    <a href="@Url.Action("ContactPage", "Main")"
+                       class="px-4 py-2 bg-lime-300 rounded-md text-zinc-950 font-medium hover:bg-lime-400">
+                        Contact Us
+                    </a>
 
-                <!-- Login Button -->
-                <a href="@Url.Action("LoginPage", "Main")"
-                   class="flex items-center gap-1 px-4 py-2 rounded-md text-sm font-medium font-['Barlow']
-       bg-neutral-800 text-white hover:bg-neutral-700 transition">
-                    <i class="fa-solid fa-user text-lime-300"></i>
+                    <a href="@Url.Action("LoginPage", "Main")"
+                       class="px-4 py-2 rounded-md bg-neutral-800 hover:bg-neutral-700 flex items-center gap-1">
+                        <i class="fa-solid fa-user text-lime-300"></i>
+                        Admin
+                    </a>
+                }
+
+            </div>
+
+            <!-- MOBILE MENU BUTTON -->
+            <button id="menu-btn" class="md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- MOBILE MENU -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 text-sm">
+
+            @if (Session["AdminID"] != null)
+            {
+                <a href="@Url.Action("Dashboard", "Main")" class="block px-4 py-2 hover:bg-neutral-800 rounded">
+                    Dashboard
+                </a>
+                <a href="@Url.Action("ContactMessagesPage", "Main")#contacts" class="block px-4 py-2 hover:bg-neutral-800 rounded">
+                    Contact Messages
+                </a>
+                <a href="@Url.Action("ProjectManagement", "Main")#projects" class="block px-4 py-2 hover:bg-neutral-800 rounded">
+                    Projects Management
+                </a>
+                <a href="@Url.Action("ServiceManagement", "Main")#services" class="block px-4 py-2 hover:bg-neutral-800 rounded">
+                    Services Management
+                </a>
+                <a href="@Url.Action("Logout", "Main")" class="block px-4 py-2 text-red-400 hover:bg-neutral-800 rounded">
+                    Logout
+                </a>
+            }
+            else
+            {
+                <a href="@Url.Action("HomePage", "Main")" class="block px-4 py-2 hover:bg-neutral-800 rounded">Home</a>
+                <a href="@Url.Action("ServicePage", "Main")" class="block px-4 py-2 hover:bg-neutral-800 rounded">Services</a>
+                <a href="@Url.Action("PortfolioPage", "Main")" class="block px-4 py-2 hover:bg-neutral-800 rounded">Projects</a>
+                <a href="@Url.Action("AboutPage", "Main")" class="block px-4 py-2 hover:bg-neutral-800 rounded">About</a>
+
+                <a href="@Url.Action("LoginPage", "Main")" class="block px-4 py-2 hover:bg-neutral-800 rounded">
                     Login
                 </a>
-            </div>
 
-            <!-- Mobile Menu Button -->
-            <div class="md:hidden">
-                <button id="menu-btn" class="focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
-                         viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-            </div>
-        </div>
+                <a href="@Url.Action("ContactPage", "Main")"
+                   class="block px-4 py-2 bg-lime-300 text-zinc-950 rounded mt-2">
+                    Contact Us
+                </a>
+            }
 
-        <!-- Mobile Dropdown Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-1">
-
-            <a href="@Url.Action("HomePage", "Main")" class="block px-4 py-2 text-neutral-200 hover:bg-neutral-700 rounded-md text-sm font-medium font-['Barlow']">Home</a>
-            <a href="@Url.Action("ServicePage", "Main")" class="block px-4 py-2 text-neutral-200 hover:bg-neutral-700 rounded-md text-sm font-medium font-['Barlow']">Services</a>
-            <a href="@Url.Action("PortfolioPage", "Main")" class="block px-4 py-2 text-neutral-200 hover:bg-neutral-700 rounded-md text-sm font-medium font-['Barlow']">Projects</a>
-            <a href="@Url.Action("AboutPage", "Main")" class="block px-4 py-2 text-neutral-200 hover:bg-neutral-700 rounded-md text-sm font-medium font-['Barlow']">About</a>
-
-            <!-- Mobile Login -->
-            <a href="@Url.Action("Login", "Main")"
-               class="block px-4 py-2 text-neutral-200 hover:bg-neutral-700 rounded-md text-sm font-medium font-['Barlow']">
-                <i class="fa-solid fa-user mr-1 text-lime-300"></i>
-                Login
-            </a>
-
-            <!-- Mobile Contact -->
-            <a href="@Url.Action("ContactPage", "Main")"
-               class="block mt-2 px-4 py-2 bg-lime-300 rounded-md text-zinc-950 text-sm font-medium font-['Barlow'] shadow-md hover:bg-lime-400">
-                Contact Us
-            </a>
         </div>
     </header>
-
-
 
 
 

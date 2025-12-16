@@ -1,105 +1,88 @@
 ﻿@{
-    Layout = "~/Views/Shared/_MainLayout.cshtml";
-}
+    Layout = "~/Views/Shared/_MainLayout.cshtml";}
 
 
-<section class="bg-zinc-950 min-h-screen px-6 py-16 text-white">
 
-    <!-- Header -->
+<!-- DataTables CSS ONLY (JS should be in _MainLayout) -->
+<link rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+
+<section class="bg-zinc-950 min-h-screen px-6 py-16 text-white"
+         ng-controller="DersurSolutionWebApplicationController"
+         ng-init="loadContacts(); loadArchivedContacts(); loadProjects(); loadServices();"
+         ng-cloak>
+
+
+
+    <!-- HEADER -->
     <div class="max-w-7xl mx-auto mb-12">
-        <h1 class="text-5xl font-semibold font-barlow mb-2">Admin Dashboard</h1>
-        <p class="text-neutral-400">Manage your website content and messages</p>
+        <h1 class="text-5xl font-semibold mb-2">Admin Dashboard</h1>
+        <p class="text-neutral-400">Content Management System</p>
     </div>
 
-    <!-- Stats -->
+    <!-- STATS -->
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-
         <div class="bg-stone-800/70 rounded-2xl p-6">
             <h3 class="text-sm text-neutral-400">Contact Messages</h3>
-            <p class="text-4xl font-bold text-lime-300 mt-2">12</p>
+            <p class="text-4xl font-bold text-lime-300 mt-2">
+                {{ contactData.length }}
+            </p>
         </div>
 
         <div class="bg-stone-800/70 rounded-2xl p-6">
             <h3 class="text-sm text-neutral-400">Projects</h3>
-            <p class="text-4xl font-bold text-lime-300 mt-2">4</p>
+            <p class="text-4xl font-bold text-lime-300 mt-2">
+                {{ projects.length }}
+            </p>
         </div>
 
         <div class="bg-stone-800/70 rounded-2xl p-6">
             <h3 class="text-sm text-neutral-400">Services</h3>
-            <p class="text-4xl font-bold text-lime-300 mt-2">3</p>
+            <p class="text-4xl font-bold text-lime-300 mt-2">
+                {{ services.length }}
+            </p>
         </div>
-
     </div>
 
-    <!-- Management Sections -->
-    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
+   
+    <div class="max-w-7xl mx-auto mb-24 grid md:grid-cols-2 gap-10">
 
-        <!-- Contact Messages -->
-        <div class="bg-stone-800/70 rounded-2xl p-6">
-            <h2 class="text-2xl font-semibold mb-4">Contact Messages</h2>
-
-            <table class="w-full text-sm text-left text-neutral-300">
-                <thead class="border-b border-stone-700">
-                    <tr>
-                        <th class="py-2">Name</th>
-                        <th class="py-2">Email</th>
-                        <th class="py-2">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="border-b border-stone-700">
-                        <td class="py-2">John Doe</td>
-                        <td class="py-2">john@email.com</td>
-                        <td class="py-2">
-                            <button class="text-lime-300 hover:underline">View</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="bg-stone-800/70 p-6 rounded-2xl">
+            <h2 class="text-xl mb-4">Monthly Contact Messages</h2>
+            <canvas class="chart chart-line"
+                    chart-data="contactChartData"
+                    chart-labels="contactLabels"></canvas>
         </div>
 
-        <!-- Projects -->
-        <div class="bg-stone-800/70 rounded-2xl p-6">
-            <h2 class="text-2xl font-semibold mb-4">Projects</h2>
-
-            <ul class="space-y-3 text-neutral-300">
-                <li class="flex justify-between">
-                    <span>Triv Design</span>
-                    <button class="text-lime-300 hover:underline">Edit</button>
-                </li>
-                <li class="flex justify-between">
-                    <span>Made by Janaiza</span>
-                    <button class="text-lime-300 hover:underline">Edit</button>
-                </li>
-            </ul>
-
-            <button class="mt-6 bg-lime-300 text-black px-4 py-2 rounded-md font-medium hover:bg-lime-400">
-                Add Project
-            </button>
+        <div class="bg-stone-800/70 p-6 rounded-2xl">
+            <h2 class="text-xl mb-4">Project Status</h2>
+            <canvas class="chart chart-bar"
+                    chart-data="projectData"
+                    chart-labels="projectLabels"></canvas>
         </div>
 
-        <!-- Services -->
-        <div class="bg-stone-800/70 rounded-2xl p-6">
-            <h2 class="text-2xl font-semibold mb-4">Services</h2>
-
-            <ul class="space-y-3 text-neutral-300">
-                <li class="flex justify-between">
-                    <span>Starter Plan</span>
-                    <button class="text-lime-300 hover:underline">Edit</button>
-                </li>
-                <li class="flex justify-between">
-                    <span>Growth Plan</span>
-                    <button class="text-lime-300 hover:underline">Edit</button>
-                </li>
-            </ul>
-
-            <button class="mt-6 bg-lime-300 text-black px-4 py-2 rounded-md font-medium hover:bg-lime-400">
-                Add Service
-            </button>
+        <div class="bg-stone-800/70 p-6 rounded-2xl">
+            <h2 class="text-xl mb-4">Services Distribution</h2>
+            <canvas class="chart chart-pie"
+                    chart-data="serviceData"
+                    chart-labels="serviceLabels"></canvas>
         </div>
 
+        <div class="bg-stone-800/70 p-6 rounded-2xl">
+            <h2 class="text-xl mb-4">Contact Status</h2>
+            <canvas class="chart chart-doughnut"
+                    chart-data="contactStatusData"
+                    chart-labels="contactStatusLabels"></canvas>
+        </div>
     </div>
+
+    <div class="max-w-7xl mx-auto mb-6 text-right">
+        <button class="bg-lime-300 text-black px-6 py-3 rounded font-semibold hover:bg-lime-400"
+                ng-click="downloadDashboardPDF()">
+            Download Dashboard Report (PDF)
+        </button>
+    </div>
+
+
 
 </section>
-
-

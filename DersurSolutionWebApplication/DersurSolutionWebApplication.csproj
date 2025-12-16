@@ -194,8 +194,18 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Context\DersurSolutionContext.cs" />
+    <Compile Include="Models\Maps\tbl_admin_user_map.cs" />
     <Compile Include="Models\Maps\tbl_contact_message_map.cs" />
+    <Compile Include="Models\Maps\tbl_project_map.cs" />
+    <Compile Include="Models\Maps\tbl_project_stat_map.cs" />
+    <Compile Include="Models\Maps\tbl_project_testimonial_map.cs" />
+    <Compile Include="Models\Maps\tbl_service_map.cs" />
+    <Compile Include="Models\tbl_admin_user_model.cs" />
     <Compile Include="Models\tbl_contact_message_model.cs" />
+    <Compile Include="Models\tbl_project_model.cs" />
+    <Compile Include="Models\tbl_project_stat_model.cs" />
+    <Compile Include="Models\tbl_project_testimonial_model.cs" />
+    <Compile Include="Models\tbl_service_model.cs" />
     <Compile Include="Models\userInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Admin.cs" />
@@ -1067,6 +1077,9 @@
     <Content Include="Views\Main\PortfolioPage.cshtml" />
     <Content Include="Views\Main\LoginPage.cshtml" />
     <Content Include="Views\Main\Dashboard.cshtml" />
+    <Content Include="Views\Main\ContactMessagesPage.cshtml" />
+    <Content Include="Views\Main\ProjectManagement.cshtml" />
+    <Content Include="Views\Main\ServiceManagment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

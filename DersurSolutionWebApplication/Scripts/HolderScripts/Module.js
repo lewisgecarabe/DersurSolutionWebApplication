@@ -1,1 +1,1 @@
-﻿var app = angular.module("DersurSolutionWebApplication", []);
+﻿var app = angular.module("DersurSolutionWebApplication", ["chart.js"]);

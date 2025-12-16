@@ -13,64 +13,31 @@
         </p>
     </div>
 
-    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
-        <!-- Starter Plan -->
-        <div class="bg-stone-800/70 rounded-3xl p-10 flex flex-col items-center text-center border border-stone-700 hover:scale-105 transition-transform duration-300">
-            <h3 class="text-3xl font-bold mb-2">Starter Plan</h3>
-            <p class="text-base text-neutral-300 mb-4">For small businesses and personal projects</p>
-            <p class="text-4xl font-semibold mb-8 text-lime-300">₱8,500</p>
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12"
+     ng-init="loadServices()">
 
-            <ul class="space-y-3 text-left w-full text-neutral-200 mb-10">
-                <li>✔ Custom responsive design (up to 3 pages)</li>
-                <li>✔ Basic SEO setup</li>
-                <li>✔ Mobile-friendly layout</li>
-                <li>✔ Free consultation</li>
-            </ul>
+    <div ng-repeat="s in services"
+         class="bg-stone-800/70 rounded-3xl p-10 flex flex-col items-center text-center border border-stone-700 hover:scale-105 transition">
 
-            <a href="@Url.Action("ContactPage", "Main")"
-               class="mt-auto bg-lime-300 text-black px-6 py-3 rounded-lg font-medium hover:bg-lime-400 transition">
-                Subscribe
-            </a>
-        </div>
+        <h3 class="text-3xl font-bold mb-2">
+            {{ s.ServiceName }}
+        </h3>
 
-        <!-- Growth Plan -->
-        <div class="bg-stone-800/70 rounded-3xl p-10 flex flex-col items-center text-center border border-stone-700 hover:scale-105 transition-transform duration-300">
-            <h3 class="text-3xl font-bold mb-2">Growth Plan</h3>
-            <p class="text-base text-neutral-300 mb-4">For growing businesses that need a complete website</p>
-            <p class="text-4xl font-semibold mb-8 text-lime-300">₱17,000</p>
+        <p class="text-base text-neutral-300 mb-4">
+            {{ s.ServiceDescription }}
+        </p>
 
-            <ul class="space-y-3 text-left w-full text-neutral-200 mb-10">
-                <li>✔ Custom responsive design (up to 6 pages)</li>
-                <li>✔ Basic SEO & speed optimization</li>
-                <li>✔ Contact forms & interactive elements</li>
-                <li>✔ 1 month free maintenance</li>
-            </ul>
+        <p class="text-4xl font-semibold mb-8 text-lime-300">
+            ₱{{ s.ServicePrice }}
+        </p>
 
-            <a href="@Url.Action("ContactPage", "Main")"
-               class="mt-auto bg-lime-300 text-black px-6 py-3 rounded-lg font-medium hover:bg-lime-400 transition">
-                Subscribe
-            </a>
-        </div>
-
-        <!-- Pro Plan -->
-        <div class="bg-stone-800/70 rounded-3xl p-10 flex flex-col items-center text-center border border-stone-700 hover:scale-105 transition-transform duration-300">
-            <h3 class="text-3xl font-bold mb-2">Pro Plan</h3>
-            <p class="text-base text-neutral-300 mb-4">For established brands & e-commerce solutions</p>
-            <p class="text-4xl font-semibold mb-8 text-lime-300">₱28,500+</p>
-
-            <ul class="space-y-3 text-left w-full text-neutral-200 mb-10">
-                <li>✔ Custom design (unlimited pages)</li>
-                <li>✔ Advanced SEO & analytics integration</li>
-                <li>✔ E-commerce or booking system setup</li>
-                <li>✔ 3 months free maintenance & support</li>
-            </ul>
-
-            <a href="@Url.Action("ContactPage", "Main")"
-               class="mt-auto bg-lime-300 text-black px-6 py-3 rounded-lg font-medium hover:bg-lime-400 transition">
-                Subscribe
-            </a>
-        </div>
+        <a href="@Url.Action("ContactPage", "Main")"
+           class="mt-auto bg-lime-300 text-black px-6 py-3 rounded-lg font-medium hover:bg-lime-400 transition">
+            Subscribe
+        </a>
     </div>
+</div>
+
 </section>
 
 

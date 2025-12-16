@@ -1,0 +1,120 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<link rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+
+<section class="bg-zinc-950 min-h-screen px-6 py-16 text-white"
+         ng-controller="DersurSolutionWebApplicationController"
+         ng-init="loadContacts(); loadArchivedContacts(); loadProjects(); loadServices();"
+         ng-cloak>
+
+    <!-- ===================== -->
+    <!-- SERVICES CMS -->
+    <!-- ===================== -->
+    <div class="max-w-7xl mx-auto mb-24 bg-stone-800/70 rounded-3xl p-8 shadow-lg">
+
+        <!-- TITLE -->
+        <div class="mb-10">
+            <h2 class="text-3xl font-semibold mb-2">Services</h2>
+            <p class="text-neutral-400 text-sm">
+                Manage service offerings displayed on the website
+            </p>
+        </div>
+
+        <!-- SERVICE FORM -->
+        <div class="grid md:grid-cols-3 gap-6 mb-10">
+
+            <div>
+                <label class="block text-sm mb-1 text-neutral-400">Service Name</label>
+                <input class="w-full p-3 bg-zinc-900 rounded-lg border border-zinc-800 focus:outline-none focus:ring-2 focus:ring-lime-300"
+                       placeholder="Service Name"
+                       ng-model="serviceForm.ServiceName" />
+            </div>
+
+            <div>
+                <label class="block text-sm mb-1 text-neutral-400">Price</label>
+                <input class="w-full p-3 bg-zinc-900 rounded-lg border border-zinc-800 focus:outline-none focus:ring-2 focus:ring-lime-300"
+                       placeholder="Price"
+                       ng-model="serviceForm.ServicePrice" />
+            </div>
+
+            <div class="md:col-span-3">
+                <label class="block text-sm mb-1 text-neutral-400">Description</label>
+                <textarea class="w-full p-3 bg-zinc-900 rounded-lg border border-zinc-800 focus:outline-none focus:ring-2 focus:ring-lime-300 min-h-[120px]"
+                          placeholder="Description"
+                          ng-model="serviceForm.ServiceDescription"></textarea>
+            </div>
+        </div>
+
+        <!-- ACTION BUTTON -->
+        <div class="mb-14">
+            <button class="bg-lime-300 text-black px-6 py-3 rounded-lg font-semibold hover:bg-lime-400 transition">
+                {{ serviceForm.ServiceID ? 'Update' : 'Add' }} Service
+            </button>
+        </div>
+
+        <!-- ACTIVE SERVICES -->
+        <div class="mb-20">
+            <h3 class="text-xl font-semibold mb-4">Active Services</h3>
+
+            <div class="overflow-x-auto rounded-xl border border-zinc-700">
+                <table id="serviceTable" class="display w-full text-sm">
+                    <thead class="bg-zinc-900 text-neutral-300">
+                        <tr>
+                            <th class="p-4">Service</th>
+                            <th class="p-4">Price</th>
+                            <th class="p-4">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="s in services">
+                            <td class="p-4">{{ s.ServiceName }}</td>
+                            <td class="p-4">{{ s.ServicePrice }}</td>
+                            <td class="p-4">
+                                <button class="text-red-400 hover:underline"
+                                        ng-click="archiveService(s.ServiceID)">
+                                    Archive
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ARCHIVED SERVICES -->
+        <div>
+            <h3 class="text-xl font-semibold mb-4 text-red-400">
+                Archived Services
+            </h3>
+
+            <div class="overflow-x-auto rounded-xl border border-zinc-700">
+                <table class="w-full text-sm text-neutral-300">
+                    <thead class="bg-zinc-900">
+                        <tr>
+                            <th class="p-4">Service</th>
+                            <th class="p-4">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="s in archivedServices" class="opacity-80">
+                            <td class="p-4">{{ s.ServiceName }}</td>
+                            <td class="p-4">
+                                <button class="text-lime-300 hover:underline"
+                                        ng-click="unarchiveService(s.ServiceID)">
+                                    Unarchive
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+

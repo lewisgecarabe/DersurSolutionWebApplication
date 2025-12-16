@@ -1,39 +1,86 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-</head>
-<body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+<meta name="viewport" content="width=device-width" />
+<title>@ViewBag.Title</title>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!--Tailwind cdn-->
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="~/Content/Site.css" asp-append-version="true" />
+
+<!-- AngularJS Library -->
+<script src="~/Scripts/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+<script src="~/Scripts/angular.min.js"></script>
+<!-- Chart.js v2 (COMPATIBLE) -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+
+
+<!-- Angular Chart -->
+<script src="https://cdn.jsdelivr.net/npm/angular-chart.js@1.1.1/dist/angular-chart.min.js"></script>
+
+<script src="~/Scripts/HolderScripts/Module.js"></script>
+<script src="~/Scripts/HolderScripts/Controller.js"></script>
+<script src="~/Scripts/HolderScripts/Service.js"></script>
+
+<!-- Font Awesome CDN -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+
+
+</head>
+<body ng-app="DersurSolutionWebApplication" ng-controller="DersurSolutionWebApplicationController"
+      class="bg-black text-white font-barlow">
+  
+
+        <aside class="w-64 bg-zinc-900 border-r border-stone-800 fixed inset-y-0 left-0 z-40">
+
+            <div class="px-6 py-6 border-b border-stone-800">
+                <h2 class="text-2xl font-semibold text-lime-300">DERSUR</h2>
+                <p class="text-xs text-neutral-400">Admin Panel</p>
+            </div>
+
+            <nav class="mt-6 space-y-2 px-4 text-sm">
+                <a href="#stats" class="flex items-center px-4 py-3 rounded hover:bg-stone-800">
+                    Dashboard
+                </a>
+                <a href="#contacts" class="flex items-center px-4 py-3 rounded hover:bg-stone-800">
+                    Contacts
+                </a>
+                <a href="#projects" class="flex items-center px-4 py-3 rounded hover:bg-stone-800">
+                    Projects
+                </a>
+                <a href="#services" class="flex items-center px-4 py-3 rounded hover:bg-stone-800">
+                    Services
+                </a>
+                <a href="#reports" class="flex items-center px-4 py-3 rounded hover:bg-stone-800">
+                    Reports
+                </a>
+
+                <hr class="my-4 border-stone-700">
+
+                <a href="@Url.Action("Logout", "Main")"
+                   class="flex items-center px-4 py-3 rounded text-red-400 hover:bg-stone-800">
+                    Logout
+                </a>
+            </nav>
+        </aside>
+        <div class="container body-content">
+            @RenderBody()
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 </body>
 </html>

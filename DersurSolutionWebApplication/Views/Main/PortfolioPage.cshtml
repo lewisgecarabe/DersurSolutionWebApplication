@@ -2,181 +2,153 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<!-- PROJECTS SECTION  -->
-<section class="bg-zinc-950 text-white py-24 px-6">
+<section class="bg-zinc-950 text-white py-24 px-6"
+         ng-init="loadProjects(); loadProjectStats(); loadTestimonials();">
+
     <div class="max-w-6xl mx-auto">
         <h2 class="text-5xl font-semibold font-['Barlow'] mb-12">
             Projects made by Dersur.
         </h2>
 
-        <!-- Projects Grid -->
+        <!-- PROJECTS GRID -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <!-- Project Card 1 -->
-            <div class="flex flex-col gap-6">
-                <img class="w-full h-80 object-cover rounded-[12px] hover:scale-105 transition-transform duration-500" src="~/Content/image/triv.png" alt="Triv Project" />
+
+            <div class="flex flex-col gap-6"
+                 ng-repeat="p in projects">
+
+                <img class="w-full h-80 object-cover rounded-[12px]
+                            hover:scale-105 transition-transform duration-500"
+                     ng-src="{{ p.ProjectImage }}"
+                     alt="{{ p.ProjectTitle }}" />
+
                 <div class="flex justify-between items-center">
-                    <h3 class="text-neutral-200 text-xl font-semibold font-['Barlow']">Triv Design and Construction</h3>
-                    <a href="#" class="p-2.5 bg-neutral-800 rounded-md hover:bg-neutral-700 transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-white">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10" />
+                    <h3 class="text-neutral-200 text-xl font-semibold font-['Barlow']">
+                        {{ p.ProjectTitle }}
+                    </h3>
+
+                    <a ng-href="{{ p.ProjectLink }}"
+                       target="_blank"
+                       class="p-2.5 bg-neutral-800 rounded-md
+                              hover:bg-neutral-700 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none" viewBox="0 0 24 24"
+                             stroke-width="2" stroke="currentColor"
+                             class="w-6 h-6 text-white">
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M7 17L17 7M7 7h10v10" />
                         </svg>
                     </a>
                 </div>
-                <p class="text-neutral-400 text-base font-['Inter'] leading-relaxed">
-                    We designed and developed a visually striking and intuitive online platform for Triv Design and Construction,
-                    a leader in premium building and renovation services. The platform showcased their portfolio with immersive visuals,
-                    streamlined service inquiries, and secure client tools — resulting in stronger engagement and credibility.
+
+                <p class="text-neutral-400 text-base font-['Inter']
+                          leading-relaxed">
+                    {{ p.ProjectDescription }}
                 </p>
             </div>
 
-            <!-- Project Card 2 -->
-            <div class="flex flex-col gap-6">
-                <img class="w-full h-80 object-cover rounded-[12px] hover:scale-105 transition-transform duration-500" src="~/Content/image/madebyjanaiza.png" alt="Made by Janaiza Project" />
-                <div class="flex justify-between items-center">
-                    <h3 class="text-neutral-200 text-xl font-semibold font-['Barlow']">Made by Janaiza</h3>
-                    <a href="#" class="p-2.5 bg-neutral-800 rounded-md hover:bg-neutral-700 transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-white">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10" />
-                        </svg>
-                    </a>
-                </div>
-                <p class="text-neutral-400 text-base font-['Inter'] leading-relaxed">
-                    Made by Janaiza partnered with us to create a handcrafted e-commerce platform showcasing unique accessories
-                    and art pieces. The platform featured rich product imagery, customization options, and secure checkout —
-                    resulting in higher satisfaction and sales growth.
-                </p>
-            </div>
         </div>
     </div>
 </section>
 
-
-<!-- OUR PROCESS SECTION  -->
+<!-- OUR PROCESS (STATIC – OK TO STAY STATIC) -->
 <section class="bg-zinc-900 text-white py-24 px-6">
     <div class="max-w-6xl mx-auto text-center mb-16">
-        <h2 class="text-5xl font-semibold font-['Barlow'] mb-4">Our Process</h2>
+        <h2 class="text-5xl font-semibold font-['Barlow'] mb-4">
+            Our Process
+        </h2>
         <p class="text-neutral-400 max-w-2xl mx-auto text-lg">
-            Every project follows a structured and creative process to ensure your goals are met with precision and quality.
+            Every project follows a structured and creative process
+            to ensure your goals are met with precision and quality.
         </p>
     </div>
 
-    <!-- Timeline Process -->
-    <div class="relative flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto gap-12">
-        <!-- Horizontal line -->
-        <div class="hidden md:block absolute top-[35px] left-0 w-full h-[2px] bg-lime-400/30"></div>
+    <div class="relative flex flex-col md:flex-row
+                items-center justify-between
+                max-w-6xl mx-auto gap-12">
 
-        <!-- Step 1 -->
-        <div class="relative flex flex-col items-center text-center md:w-1/4">
-            <div class="w-14 h-14 flex items-center justify-center border-2 border-lime-400 rounded-full text-2xl font-semibold text-lime-400 bg-zinc-900 relative z-10">
-                1
-            </div>
-            <h3 class="mt-6 text-xl font-semibold">Consult</h3>
-            <p class="text-neutral-400 text-base mt-2">We discuss your ideas, goals, and requirements.</p>
-        </div>
+        <div class="hidden md:block absolute top-[35px]
+                    left-0 w-full h-[2px]
+                    bg-lime-400/30"></div>
 
-        <!-- Step 2 -->
-        <div class="relative flex flex-col items-center text-center md:w-1/4">
-            <div class="w-14 h-14 flex items-center justify-center border-2 border-lime-400 rounded-full text-2xl font-semibold text-lime-400 bg-zinc-900 relative z-10">
-                2
-            </div>
-            <h3 class="mt-6 text-xl font-semibold">Design</h3>
-            <p class="text-neutral-400 text-base mt-2">We craft mockups and prototypes for your approval.</p>
-        </div>
+        <div class="relative flex flex-col items-center
+                    text-center md:w-1/4"
+             ng-repeat="step in [
+                {num:1,title:'Consult',desc:'We discuss your ideas, goals, and requirements.'},
+                {num:2,title:'Design',desc:'We craft mockups and prototypes for approval.'},
+                {num:3,title:'Develop',desc:'We build the full working system.'},
+                {num:4,title:'Deliver',desc:'We launch and provide support.'}
+             ]">
 
-        <!-- Step 3 -->
-        <div class="relative flex flex-col items-center text-center md:w-1/4">
-            <div class="w-14 h-14 flex items-center justify-center border-2 border-lime-400 rounded-full text-2xl font-semibold text-lime-400 bg-zinc-900 relative z-10">
-                3
+            <div class="w-14 h-14 flex items-center justify-center
+                        border-2 border-lime-400 rounded-full
+                        text-2xl font-semibold text-lime-400
+                        bg-zinc-900 relative z-10">
+                {{ step.num }}
             </div>
-            <h3 class="mt-6 text-xl font-semibold">Develop</h3>
-            <p class="text-neutral-400 text-base mt-2">We turn your design into a fully functional website.</p>
-        </div>
 
-        <!-- Step 4 -->
-        <div class="relative flex flex-col items-center text-center md:w-1/4">
-            <div class="w-14 h-14 flex items-center justify-center border-2 border-lime-400 rounded-full text-2xl font-semibold text-lime-400 bg-zinc-900 relative z-10">
-                4
-            </div>
-            <h3 class="mt-6 text-xl font-semibold">Deliver</h3>
-            <p class="text-neutral-400 text-base mt-2">We launch your site and provide support post-deployment.</p>
+            <h3 class="mt-6 text-xl font-semibold">
+                {{ step.title }}
+            </h3>
+
+            <p class="text-neutral-400 text-base mt-2">
+                {{ step.desc }}
+            </p>
         </div>
     </div>
 </section>
 
-
-
-
-<!--  PROJECT HIGHLIGHTS SECTION  -->
+<!-- PROJECT HIGHLIGHTS (DYNAMIC) -->
 <section class="bg-zinc-950 text-white py-20">
-    <div class="max-w-6xl mx-auto text-center grid md:grid-cols-4 gap-8 px-6">
-        <div>
-            <h3 class="text-4xl font-bold text-lime-300 mb-2">3+</h3>
-            <p class="text-neutral-400 text-sm uppercase tracking-wide">Websites Completed</p>
+    <div class="max-w-6xl mx-auto text-center
+                grid md:grid-cols-4 gap-8 px-6">
+
+        <div ng-repeat="stat in projectStats">
+            <h3 class="text-4xl font-bold text-lime-300 mb-2">
+                {{ stat.StatValue }}
+            </h3>
+            <p class="text-neutral-400 text-sm uppercase tracking-wide">
+                {{ stat.StatLabel }}
+            </p>
         </div>
-        <div>
-            <h3 class="text-4xl font-bold text-lime-300 mb-2">100%</h3>
-            <p class="text-neutral-400 text-sm uppercase tracking-wide">Client Satisfaction</p>
-        </div>
-        <div>
-            <h3 class="text-4xl font-bold text-lime-300 mb-2">1+</h3>
-            <p class="text-neutral-400 text-sm uppercase tracking-wide">Years of Experience</p>
-        </div>
-        <div>
-            <h3 class="text-4xl font-bold text-lime-300 mb-2">Philippines</h3>
-            <p class="text-neutral-400 text-sm uppercase tracking-wide">Based From</p>
-        </div>
+
     </div>
 </section>
 
-
-<!--  TESTIMONIALS SECTION  -->
+<!-- TESTIMONIALS (DYNAMIC) -->
 <section class="bg-zinc-900 text-white py-24 px-6">
     <div class="max-w-6xl mx-auto text-center mb-16">
-        <h2 class="text-5xl font-semibold font-['Barlow'] mb-4">What Our Clients Say</h2>
-        <p class="text-neutral-400 text-lg">Real feedback from our valued partners</p>
+        <h2 class="text-5xl font-semibold font-['Barlow'] mb-4">
+            What Our Clients Say
+        </h2>
+        <p class="text-neutral-400 text-lg">
+            Real feedback from our valued partners
+        </p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-        <div class="bg-stone-700/70 rounded-2xl p-8">
+
+        <div class="bg-stone-700/70 rounded-2xl p-8"
+             ng-repeat="t in testimonials">
+
             <p class="text-neutral-200 italic mb-6">
-                "Dersur transformed our business website! It is modern, responsive,
-                and exactly what we envisioned."
+                "{{ t.TestimonialText }}"
             </p>
+
             <div class="flex items-center gap-4">
-                <img src="~/Content/image/client1.jpg" class="w-12 h-12 rounded-full object-cover" alt="Client 1" />
+                <img ng-src="{{ t.ClientImage }}"
+                     class="w-12 h-12 rounded-full object-cover" />
+
                 <div>
-                    <h4 class="font-semibold text-lg">Maria Santos</h4>
-                    <p class="text-sm text-neutral-400">Owner</p>
+                    <h4 class="font-semibold text-lg">
+                        {{ t.ClientName }}
+                    </h4>
+                    <p class="text-sm text-neutral-400">
+                        {{ t.ClientRole }}
+                    </p>
                 </div>
             </div>
         </div>
 
-        <div class="bg-stone-700/70 rounded-2xl p-8">
-            <p class="text-neutral-200 italic mb-6">
-                "They built our company site quickly and professionally. Highly recommend
-                for startups looking for quality work!"
-            </p>
-            <div class="flex items-center gap-4">
-                <img src="~/Content/image/client2.jpg" class="w-12 h-12 rounded-full object-cover" alt="Client 2" />
-                <div>
-                    <h4 class="font-semibold text-lg">John Reyes</h4>
-                    <p class="text-sm text-neutral-400">CEO</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-stone-700/70 rounded-2xl p-8">
-            <p class="text-neutral-200 italic mb-6">
-                "Amazing experience from start to finish. The team communicates well and
-                delivers high-quality work!"
-            </p>
-            <div class="flex items-center gap-4">
-                <img src="~/Content/image/client3.jpg" class="w-12 h-12 rounded-full object-cover" alt="Client 3" />
-                <div>
-                    <h4 class="font-semibold text-lg">Angela Cruz</h4>
-                    <p class="text-sm text-neutral-400">Marketing Manager</p>
-                </div>
-            </div>
-        </div>
     </div>
 </section>

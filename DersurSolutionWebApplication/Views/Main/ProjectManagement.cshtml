@@ -1,0 +1,136 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<link rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+
+<section class="bg-zinc-950 min-h-screen px-6 py-16 text-white"
+         ng-controller="DersurSolutionWebApplicationController"
+         ng-init="loadContacts(); loadArchivedContacts(); loadProjects(); loadServices();"
+         ng-cloak>
+
+    <!-- ===================== -->
+    <!-- PROJECTS CMS -->
+    <!-- ===================== -->
+    <div class="max-w-7xl mx-auto mb-24 bg-stone-800/70 rounded-3xl p-8 shadow-lg">
+
+        <!-- TITLE -->
+        <div class="mb-10">
+            <h2 class="text-3xl font-semibold mb-2">Projects</h2>
+            <p class="text-neutral-400 text-sm">
+                Manage portfolio projects displayed on the website
+            </p>
+        </div>
+
+        <!-- PROJECT FORM -->
+        <div class="grid md:grid-cols-2 gap-6 mb-12">
+
+            <div>
+                <label class="block text-sm mb-1 text-neutral-400">Project Title</label>
+                <input class="w-full p-3 bg-zinc-900 rounded-lg border border-zinc-800 focus:outline-none focus:ring-2 focus:ring-lime-300"
+                       placeholder="Project Title"
+                       ng-model="projectForm.ProjectTitle" />
+            </div>
+
+            <div>
+                <label class="block text-sm mb-1 text-neutral-400">Project Link</label>
+                <input class="w-full p-3 bg-zinc-900 rounded-lg border border-zinc-800 focus:outline-none focus:ring-2 focus:ring-lime-300"
+                       placeholder="Project Link"
+                       ng-model="projectForm.ProjectLink" />
+            </div>
+
+            <div class="md:col-span-2">
+                <label class="block text-sm mb-1 text-neutral-400">Description</label>
+                <textarea class="w-full p-3 bg-zinc-900 rounded-lg border border-zinc-800 focus:outline-none focus:ring-2 focus:ring-lime-300 min-h-[120px]"
+                          placeholder="Description"
+                          ng-model="projectForm.ProjectDescription"></textarea>
+            </div>
+
+            <div class="md:col-span-2">
+                <label class="block text-sm mb-1 text-neutral-400">Project Image</label>
+                <input type="file"
+                       class="block w-full text-sm text-neutral-300
+                              file:bg-zinc-800 file:text-white
+                              file:border-0 file:px-4 file:py-2 file:rounded-lg
+                              file:hover:bg-zinc-700"
+                       onchange="angular.element(this).scope().onProjectImageSelect(this)" />
+            </div>
+
+            <div class="md:col-span-2 flex items-center gap-4 mt-4">
+                <button class="bg-lime-300 text-black px-6 py-3 rounded-lg font-semibold hover:bg-lime-400 transition"
+                        ng-click="saveProjectCMS()">
+                    {{ projectForm.ProjectID ? 'Update' : 'Add' }} Project
+                </button>
+
+                <button class="text-red-400 hover:underline"
+                        ng-if="projectForm.ProjectID"
+                        ng-click="resetProjectForm()">
+                    Cancel
+                </button>
+            </div>
+        </div>
+
+        <!-- ACTIVE PROJECTS -->
+        <div class="mb-20">
+            <h3 class="text-xl font-semibold mb-4">Active Projects</h3>
+
+            <div class="overflow-x-auto rounded-xl border border-zinc-700">
+                <table id="projectTable" class="display w-full text-sm">
+                    <thead class="bg-zinc-900 text-neutral-300">
+                        <tr>
+                            <th class="p-4">Project</th>
+                            <th class="p-4">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="p in projects">
+                            <td class="p-4">{{ p.ProjectTitle }}</td>
+                            <td class="p-4 space-x-3">
+                                <button class="text-lime-300 hover:underline"
+                                        ng-click="editProject(p)">
+                                    Edit
+                                </button>
+                                <button class="text-red-400 hover:underline"
+                                        ng-click="archiveProject(p.ProjectID)">
+                                    Archive
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ARCHIVED PROJECTS -->
+        <div>
+            <h3 class="text-xl font-semibold mb-4 text-red-400">
+                Archived Projects
+            </h3>
+
+            <div class="overflow-x-auto rounded-xl border border-zinc-700">
+                <table class="w-full text-sm text-neutral-300">
+                    <thead class="bg-zinc-900">
+                        <tr>
+                            <th class="p-4">Project</th>
+                            <th class="p-4">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="p in archivedProjects" class="opacity-80">
+                            <td class="p-4">{{ p.ProjectTitle }}</td>
+                            <td class="p-4">
+                                <button class="text-lime-300 hover:underline"
+                                        ng-click="unarchiveProject(p.ProjectID)">
+                                    Unarchive
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</section>
